@@ -1,33 +1,57 @@
 # Telco Customer Churn & Retention Analysis
 
-## 📌 About
-This project focuses on identifying churn patterns, retention drivers, and customer lifetime trends in a subscription-based telecommunications business. By leveraging Python for data cleaning and exploratory data analysis (EDA), SQL for structured querying, and Power BI for interactive visualizations, this analysis provides actionable insights to reduce customer attrition.
+> Analysing **7,032 telecom customers** to find who is leaving, why, and where retention spend should go.
 
-## 🚀 Features
-- **Exploratory Data Analysis (EDA):** Python notebooks utilizing Pandas and data visualization libraries to uncover hidden patterns in customer demographics, services, and billing.
-- **SQL Data Analysis:** Structured queries to calculate churn rates across different customer segments, contract types, and payment methods.
-- **Interactive Power BI Dashboard:** A comprehensive visual report (`Telco Churn Rate`) highlighting key performance indicators (KPIs) like churn risk, monthly charges, and service adoption.
-- **End-to-End Pipeline:** From raw data ingestion to processed data exports ready for reporting.
+![Churn dashboard](images/dashboard-preview.png)
 
-## 🛠️ Tech Stack
-- **Data Processing & Analysis:** Python (Pandas, Numpy)
-- **Database Querying:** SQL
-- **Data Visualization:** Power BI, Matplotlib/Seaborn
+[![Python](https://img.shields.io/badge/Python-Pandas%20%7C%20NumPy-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![SQL](https://img.shields.io/badge/SQL-Segment%20Analysis-4479A1?logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
 
-## 📂 Repository Structure
-- `data/`: Contains the raw dataset (`WA_Fn-UseC_-Telco-Customer-Churn.csv`).
-- `exports/`: Contains the cleaned dataset (`telco_churn_cleaned.csv`) generated from the Python notebooks.
-- `notebook/`: Contains Jupyter Notebooks detailing the data cleaning and EDA processes.
-- `sql/`: Contains `churn_queries.sql` with SQL scripts used to extract deeper insights.
-- `dashboard/`: Contains the Power BI dashboard file (`Telco Churn Rate.pbix`) and a PDF export for quick viewing.
+## Key Results
 
-## ⚙️ Setup and Usage
-1. **Python Analysis:** 
-   - Open the notebooks in the `notebook/` folder using Jupyter Notebook or VS Code.
-   - Run the cells to reproduce the data cleaning and exploratory analysis.
-2. **SQL Analysis:**
-   - Import the `exports/telco_churn_cleaned.csv` into your preferred SQL database.
-   - Run the queries found in `sql/churn_queries.sql`.
-3. **Power BI Dashboard:**
-   - Open `dashboard/Telco Churn Rate.pbix` using Power BI Desktop to interact with the visualizations.
-   - You can also view the static report via the provided PDF in the same folder.
+| Metric | Finding |
+| --- | --- |
+| **Overall churn rate** | **26.58%** — 1,869 of 7,032 customers left |
+| **Highest-risk segment** | **Month-to-month contracts** — 1,655 churned (by far the largest group) |
+| **Most loyal segment** | **Two-year contracts** — only 48 churned |
+| **Retention lever** | Moving month-to-month customers onto longer contracts is the single biggest opportunity |
+
+## The Problem
+
+A telecommunications provider was losing customers without a clear picture of *which* segments were leaving or *why*. Retention budget was being spent evenly instead of where the risk actually sat.
+
+## Approach
+
+1. **Cleaned** the raw 7,032-row dataset in Python (Pandas) — handled missing values, fixed data types, and exported an analysis-ready file.
+2. **Explored** churn against contract type, tenure, payment method, and services to isolate the strongest predictors.
+3. **Queried** the cleaned data with SQL to quantify churn rates per segment.
+4. **Built** an interactive Power BI dashboard so the business can see churn risk at a glance and drill into any segment.
+
+## What the Data Shows
+
+- Churn is concentrated in **month-to-month** contracts — these customers have no commitment and the least friction to leave.
+- **Two-year** customers are extremely sticky (48 churns), confirming contract length as the dominant loyalty driver.
+- The clearest, cheapest win is an **onboarding-to-annual-contract** push aimed at new, month-to-month customers.
+
+## Repository Structure
+
+```
+├── data/          Raw dataset (WA_Fn-UseC_-Telco-Customer-Churn.csv)
+├── exports/       Cleaned, analysis-ready data
+├── notebook/      Jupyter notebooks — cleaning + exploratory analysis
+├── sql/           Segment churn queries
+├── dashboard/     Power BI file (.pbix) + PDF export
+└── images/        Dashboard preview
+```
+
+## Run It Yourself
+
+1. Open the notebooks in `notebook/` to reproduce the cleaning and EDA.
+2. Load `exports/telco_churn_cleaned.csv` into any SQL engine and run `sql/churn_queries.sql`.
+3. Open `dashboard/Telco Churn Rate.pbix` in Power BI Desktop, or view the PDF for a no-install preview.
+
+---
+
+**Baxolele Mazwi** — BSc Construction student at Wits & aspiring data scientist
+[Portfolio](https://mazwiibaxolele.github.io/mazwi-portfolio/) · [LinkedIn](https://linkedin.com/in/baxolele-mazwi-9b2322267)
